@@ -1,16 +1,15 @@
 module Mutations
-  class CreateTodo < BaseMutation
-    argument :title, String, required: true
-    argument :description, String, required: false
-    argument :completed, Boolean, required: false
+  class CreateTodo < Mutations::BaseMutation
+    argument :input, Mutations::TodoInput, required: true
     field :todo, Types::TodoType, null: false
 
-    def resolve(title: nil, description: nil, completed: false)
+    def resolve(input:)
       todo = Todo.create!(
-        title: title,
-        description: description,
-        completed: completed
+        title: input.title,
+        description: input.description,
+        completed: input.completed
       )
+      { todo: todo }
     end
   end
 end
