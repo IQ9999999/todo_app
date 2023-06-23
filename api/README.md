@@ -1,24 +1,19 @@
-# README
+# TODO backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install required gems
 
-Things you may want to cover:
+```bash
+bundle install
+```
 
-* Ruby version
+## Setup database
 
-* System dependencies
+```bash
+rails db:create db:migrate db:seed
+```
 
-* Configuration
+### Run Server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+rails server
+```

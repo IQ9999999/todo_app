@@ -1,17 +1,19 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add `node(id: ID!) and `nodes(ids: [ID!]!)`
-    include GraphQL::Types::Relay::HasNodeField
-    include GraphQL::Types::Relay::HasNodesField
+    field :todo, Types::TodoType, null: false do
+      argument :id, ID, required: true
+    end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :todos, [Types::TodoType], null: false do
+      argument :sort_direction, String, required: false, default_value: 'asc'
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def todo(id:)
+      Todo.find(id)
+    end
+
+    def todos(sort_direction:)
+      Todo.order(title: sort_direction.to_sym)
     end
   end
 end
