@@ -1,0 +1,8 @@
+query GetTodos($sortDirection: String) {
+  todos(sortDirection: $sortDirection) {
+    id
+    title
+    description
+    completed
+  }
+}

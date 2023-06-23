@@ -1,0 +1,10 @@
+mutation UpdateTodo($id: ID!, $title: String!, $description: String, $completed: Boolean) {
+  updateTodo(input: { id: $id, input: { title: $title, description: $description, completed: $completed } }) {
+    todo {
+      id
+      title
+      description
+      completed
+    }
+  }
+}
