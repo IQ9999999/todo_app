@@ -8,3 +8,4 @@
 
 Todo.create!(title: 'First Todo', description: 'This is the first todo.', completed: false)
 Todo.create!(title: 'Second Todo', description: 'This is the second todo.', completed: false)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
